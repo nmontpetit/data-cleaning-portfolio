@@ -3,3 +3,6 @@ __pycache__/
 .DS_Store
 data-cleaning-portfolio/.git
 .venv/
+*.egg-info/
+__pycache__/
+.pytest_cache/
