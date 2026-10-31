@@ -1,22 +1,20 @@
-# Cleaning report — messy_sales.csv
+# Cleaning report
 
-- Input rows: 18
-- Output rows: 17
-- Duplicates removed: 1
-- Blank cells standardized: 10
+- Input: input/messy_sales.csv
+- Rows in: 18  /  Rows out: 17
 
-## Changes applied
+## Audit log
 
-- load: 18 — raw rows loaded (10 cols)
-- whitespace: 1 — trimmed leading/trailing spaces in all cells
-- blanks: 10 — standardized empties/'' to missing (NA)
-- numeric: 1 — coerced col 'qty' to numeric
-- numeric: 1 — coerced col 'total_sales' to numeric
-- date: 2 — parsed 'order_date' to one format; mixed input formats
-- text_standard: 1 — lowercased + mapped aliases to canonical values
-- duplicates: 1 — removed 1 exact duplicate rows
-- derived: 1 — recomputed total_sales = qty*unit_price; flagged rows where stored total disagreed
-- incomplete: 4 — rows missing one or more required fields (['order_id', 'order_date', 'product', 'qty'])
+- **load**: 18 — loaded 18 rows × 10 cols from input/messy_sales.csv
+- **strip_whitespace**: 1 — trimmed leading/trailing spaces in all cells
+- **normalize_nulls**: 9 — standardized blanks & sentinels to missing (NA)
+- **coerce_number** [qty]: 1 — coerced to numeric
+- **coerce_number** [total_sales]: 1 — unparseable cells set to NA (kept as missing)
+- **coerce_number** [total_sales]: 1 — coerced to numeric; currency markers ($ ,) stripped
+- **parse_date** [order_date]: 2 — normalized date to YYYY-MM-DD
+- **dedupe**: 1 — removed 1 exact duplicate rows
+- **derive** [total_sales]: 1 — recomputed total_sales=qty * unit_price; flagged 1 mismatches
+- **check_required**: 4 — rows missing one or more required fields ['order_id', 'order_date', 'qty']
 
 ## Output files
 - `clean.csv` — cleaned data

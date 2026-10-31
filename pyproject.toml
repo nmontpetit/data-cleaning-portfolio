@@ -1,9 +1,21 @@
 [project]
 name = "data-cleaning-portfolio"
-version = "0.1.0"
-description = "Reusable, documented data-cleaning pipeline: messy retail sales CSV to clean output + change log."
+version = "0.2.0"
+description = "Class-based, auditable data-cleaning pipeline: messy CSV to clean output + full change log."
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "pandas>=2.1",
+]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["dataclean"]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
 ]
