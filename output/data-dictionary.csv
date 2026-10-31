@@ -1,0 +1,12 @@
+column,dtype_after,role
+order_id,str,key
+order_date,str,attribute
+customer_name,str,attribute
+region,str,attribute
+product,str,attribute
+category,str,attribute
+qty,float64,attribute
+unit_price,float64,attribute
+total_sales,float64,derived
+payment,str,attribute
+stored_total_was_wrong,bool,derived
