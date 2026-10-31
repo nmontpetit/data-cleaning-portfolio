@@ -1,0 +1,14 @@
+{"step": "load", "count": 18, "detail": "loaded 18 rows \u00d7 10 cols from input/messy_sales.csv", "column": null}
+{"step": "strip_whitespace", "count": 1, "detail": "trimmed leading/trailing spaces in all cells", "column": null}
+{"step": "normalize_nulls", "count": 9, "detail": "standardized blanks & sentinels to missing (NA)", "column": null}
+{"step": "coerce_number", "count": 1, "detail": "coerced to numeric", "column": "qty"}
+{"step": "coerce_number", "count": 0, "detail": "coerced to numeric; currency markers ($ ,) stripped", "column": "unit_price"}
+{"step": "coerce_number", "count": 1, "detail": "unparseable cells set to NA (kept as missing)", "column": "total_sales"}
+{"step": "coerce_number", "count": 1, "detail": "coerced to numeric; currency markers ($ ,) stripped", "column": "total_sales"}
+{"step": "parse_date", "count": 2, "detail": "normalized date to YYYY-MM-DD", "column": "order_date"}
+{"step": "normalize_category", "count": 0, "detail": "canonicalized; unmapped values kept: []", "column": "region"}
+{"step": "normalize_category", "count": 0, "detail": "canonicalized; unmapped values kept: []", "column": "category"}
+{"step": "normalize_category", "count": 0, "detail": "canonicalized; unmapped values kept: []", "column": "payment"}
+{"step": "dedupe", "count": 1, "detail": "removed 1 exact duplicate rows", "column": null}
+{"step": "derive", "count": 1, "detail": "recomputed total_sales=qty * unit_price; flagged 1 mismatches", "column": "total_sales"}
+{"step": "check_required", "count": 4, "detail": "rows missing one or more required fields ['order_id', 'order_date', 'qty']", "column": null}
