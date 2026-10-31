@@ -1,0 +1,9 @@
+[project]
+name = "data-cleaning-portfolio"
+version = "0.1.0"
+description = "Reusable, documented data-cleaning pipeline: messy retail sales CSV to clean output + change log."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.1",
+]

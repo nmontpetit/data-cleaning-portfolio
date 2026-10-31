@@ -7,6 +7,7 @@ cleaning workflow on a deliberately messy retail sales dataset.
 ```
 input/messy_sales.csv     raw, messy source data (do not edit)
 clean.py                  the reusable cleaning pipeline
+pyproject.toml / uv.lock  uv project definition + locked dependencies
 output/clean.csv          cleaned, tidy dataset
 output/summary.md         change log: every issue found and fixed
 output/data-dictionary.csv  column schema after cleaning
@@ -25,10 +26,13 @@ output/data-dictionary.csv  column schema after cleaning
 - [x] Required-field completeness reported
 
 ## How to run
+Managed with [uv](https://docs.astral.sh/uv/). Dependencies are pinned in `uv.lock`.
 ```bash
-python3 clean.py input/messy_sales.csv
+uv sync                                  # create .venv with locked deps
+uv run clean.py input/messy_sales.csv    # run the pipeline
 ```
-Python 3.10+ with pandas. The `CONFIG` section at the top of `clean.py`
+`uv run` will also sync automatically on first use. Python version is set in
+`.python-version` (3.12; project supports 3.10+). The `CONFIG` section at the top of `clean.py`
 makes the pipeline reusable: change the column names/mappings and point
 it at any messy CSV. Every job ships with a written change log like
 `output/summary.md` — the detail that sells the work.
