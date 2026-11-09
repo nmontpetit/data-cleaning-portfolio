@@ -1,12 +1,12 @@
-column,dtype_after,role
-order_id,str,key
-order_date,str,attribute
-customer_name,str,attribute
-region,str,attribute
-product,str,attribute
-category,str,attribute
-qty,float64,attribute
-unit_price,float64,attribute
-total_sales,float64,derived
-payment,str,attribute
-stored_total_was_wrong,bool,derived
+column,dtype_after,base_column,derived,required,dtype_rule
+order_id,str,order_id,,True,id
+order_date,str,order_date,,True,date
+customer_name,str,customer_name,,False,text
+region,str,region,,False,category
+product,str,product,,False,text
+category,str,category,,False,category
+qty,float64,qty,,True,number
+unit_price,float64,unit_price,,False,number
+total_sales,float64,total_sales,qty * unit_price,False,number
+payment,str,payment,,False,category
+total_sales_was_wrong,bool,total_sales,qty * unit_price,False,number
